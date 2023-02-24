@@ -1,16 +1,16 @@
 package org.training.employeesmanagement.exception;
 
-public class NoSuchEmployeeExists extends RuntimeException{
+public class AccessDeniedException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 
 	private String message;
 
-	public NoSuchEmployeeExists(String message) {
+	public AccessDeniedException(String message) {
 		super(message);
 	}
 
-	public NoSuchEmployeeExists() {
+	public AccessDeniedException()  {
 		super();
 	}
 
@@ -21,5 +21,4 @@ public class NoSuchEmployeeExists extends RuntimeException{
 	public void setMessage(String message) {
 		this.message = message;
 	}
-  
 }

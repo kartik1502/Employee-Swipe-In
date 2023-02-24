@@ -23,8 +23,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		for (ObjectError error : ex.getBindingResult().getAllErrors()) {
 			errorDetails.add(error.getDefaultMessage());
 		}
-		ErrorResponse response = new ErrorResponse(4008l, errorDetails);
-		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+		ErrorResponse response = new ErrorResponse(400l, errorDetails);
+		return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
+	}
+	@ExceptionHandler(value = AccessDeniedException.class)
+	public ResponseEntity<Object> exception(AccessDeniedException exception) {
+		return new ResponseEntity<>("Unauthorized Employee", HttpStatus.UNAUTHORIZED);
 	}
 
 	@ExceptionHandler(value = NoSuchEmployeeExists.class)
@@ -33,3 +37,4 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	}
 
 }
+

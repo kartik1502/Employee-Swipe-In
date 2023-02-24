@@ -2,36 +2,23 @@ package org.training.employeesmanagement.exception;
 
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ErrorResponse {
 
-	private long errorCode;
-
-	private List<String> errorDetails;
-
-	public ErrorResponse(long errorCode, List<String> errorDetails) {
-		super();
-		this.errorCode = errorCode;
-		this.errorDetails = errorDetails;
-	}
-
-	public ErrorResponse() {
+	long errorcode;
+	List<String> errorMessage;
+  
+  public ErrorResponse() {
 		super();
 	}
 
-	public long getErrorCode() {
-		return errorCode;
-	}
-
-	public void setErrorCode(long errorCode) {
-		this.errorCode = errorCode;
-	}
-
-	public List<String> getErrorDetails() {
-		return errorDetails;
-	}
-
-	public void setErrorDetails(List<String> errorDetails) {
-		this.errorDetails = errorDetails;
-	}
-
+	public ErrorResponse(long errorcode, List<String> errorMessage) {
+		super();
+		this.errorcode = errorcode;
+		this.errorMessage = errorMessage;
+  }
 }
