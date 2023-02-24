@@ -24,10 +24,19 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 			errorDetails.add(error.getDefaultMessage());
 		}
 		ErrorResponse response = new ErrorResponse(400l, errorDetails);
-		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
+	}
+	@ExceptionHandler(value = AccessDeniedException.class)
+	public ResponseEntity<Object> exception(AccessDeniedException exception) {
+		return new ResponseEntity<>("Unauthorized Employee", HttpStatus.UNAUTHORIZED);
 	}
 
-	@ExceptionHandler(value = EmployeeAlreadyExists.class)
+	@ExceptionHandler(value = NoSuchEmployeeExists.class)
+	public ResponseEntity<Object> exception(NoSuchEmployeeExists exception) {
+		return new ResponseEntity<>("No such employee exists", HttpStatus.NOT_FOUND);
+	}
+  
+  @ExceptionHandler(value = EmployeeAlreadyExists.class)
 	public ResponseEntity<Object> exception(EmployeeAlreadyExists exception) {
 		return new ResponseEntity<>("Employee already exists", HttpStatus.CONFLICT);
 

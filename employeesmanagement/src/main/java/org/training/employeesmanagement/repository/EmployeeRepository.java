@@ -8,5 +8,4 @@ import org.training.employeesmanagement.entity.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	Employee findByEmpEmail(String empEmail);
-
 }

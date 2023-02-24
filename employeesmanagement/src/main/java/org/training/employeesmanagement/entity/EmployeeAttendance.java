@@ -15,7 +15,6 @@ import lombok.Data;
 
 @Entity
 @Data
-
 public class EmployeeAttendance {
 
 	@Id
@@ -31,5 +30,4 @@ public class EmployeeAttendance {
 	
 	@CreationTimestamp
 	private LocalDate swipeDate;
-	
 }
