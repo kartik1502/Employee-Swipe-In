@@ -11,10 +11,14 @@ public class ErrorResponse {
 
 	long errorcode;
 	List<String> errorMessage;
+  
+  public ErrorResponse() {
+		super();
+	}
+
 	public ErrorResponse(long errorcode, List<String> errorMessage) {
 		super();
 		this.errorcode = errorcode;
 		this.errorMessage = errorMessage;
-	}
-
+  }
 }

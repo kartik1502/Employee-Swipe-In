@@ -24,7 +24,6 @@ public class Employee {
 	@Pattern(regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\\\.[a-zA-Z0-9-.]+$", message = "Invalid email Id")
 	private String empEmail;
 
-
 	private LocalDate joinDate;
 
 	@NotNull

@@ -14,7 +14,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @RestControllerAdvice
-public class GlobalExceptionHandler  extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
@@ -31,13 +31,10 @@ public class GlobalExceptionHandler  extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>("Unauthorized Employee", HttpStatus.UNAUTHORIZED);
 	}
 
-
-
 	@ExceptionHandler(value = NoSuchEmployeeExists.class)
 	public ResponseEntity<Object> exception(NoSuchEmployeeExists exception) {
 		return new ResponseEntity<>("No such employee exists", HttpStatus.NOT_FOUND);
 	}
 
-
-
 }
+
