@@ -49,5 +49,27 @@ public class EmployeeAttendanceServiceImpl implements EmployeeAttendanceService 
 			return attendanceRepository.save(attendance);
 		}
 	}
+	
+	@Override
+	public List<EmployeeAttendance> searchemployeeattendance(int admniId, int empId, String startDate, String endDate) {
+
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		LocalDate startdate=LocalDate.parse(startDate, dateFormatter);
+		LocalDate enddate=LocalDate.parse(endDate, dateFormatter);
+
+
+		Optional<Employee> employee = employeeRepository.findById(admniId);
+		if(!"admin".equals(employee.get().getRole()))
+		{
+			throw new AccessDeniedException();                             
+		}
+		Optional<Employee> emp = employeeRepository.findById(empId);
+		if(emp.isEmpty())
+		{
+			throw new NoSuchEmployeeExists();
+		}
+
+		return employeeAttendanceRepository.findBySwipeDateBetweenAndEmployees(startdate, enddate, emp.get());
+	}
 
 }
