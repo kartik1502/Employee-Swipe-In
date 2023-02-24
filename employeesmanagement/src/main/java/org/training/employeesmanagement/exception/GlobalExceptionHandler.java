@@ -35,6 +35,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	public ResponseEntity<Object> exception(NoSuchEmployeeExists exception) {
 		return new ResponseEntity<>("No such employee exists", HttpStatus.NOT_FOUND);
 	}
+  
+  @ExceptionHandler(value = EmployeeAlreadyExists.class)
+	public ResponseEntity<Object> exception(EmployeeAlreadyExists exception) {
+		return new ResponseEntity<>("Employee already exists", HttpStatus.CONFLICT);
+
+	}
 
 }
-

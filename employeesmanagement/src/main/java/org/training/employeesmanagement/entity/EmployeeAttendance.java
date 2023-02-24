@@ -30,5 +30,4 @@ public class EmployeeAttendance {
 	
 	@CreationTimestamp
 	private LocalDate swipeDate;
-
 }

@@ -14,3 +14,4 @@ public interface EmployeeAttendanceRepository extends JpaRepository<EmployeeAtte
   EmployeeAttendance findEmployeeAttendanceBySwipeDateAndEmployees(LocalDate now, Employee employee);
 
 }
+
