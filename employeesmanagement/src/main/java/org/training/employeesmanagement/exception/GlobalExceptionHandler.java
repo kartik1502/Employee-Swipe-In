@@ -28,7 +28,7 @@ public class GlobalExceptionHandler  extends ResponseEntityExceptionHandler {
 	}
 	@ExceptionHandler(value = AccessDeniedException.class)
 	public ResponseEntity<Object> exception(AccessDeniedException exception) {
-		return new ResponseEntity<>("Unauthorized Employee", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("Unauthorized Employee", HttpStatus.UNAUTHORIZED);
 	}
 
 
